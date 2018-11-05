@@ -1,0 +1,26 @@
+-#  This file is app/views/movies/index.html.haml
+%h1 Rottenpotato
+%h2 All Movies 
+
+
+%table#movies
+  %thead
+    %tr
+      %th Index
+      %th Movie Title
+      %th Rating
+      %th Release Date
+      %th More Info
+  %tbody
+    - @movies.each_with_index do |movie, movieindex|
+      %tr
+        %td= movieindex + 1
+        %td= movie.title
+        %td= movie.description
+        %td= movie.rating
+        %td= movie.release_date
+        %td= link_to "More about #{movie.title}", movie_path(movie)
+    
+-# add to end of index.html.haml
+
+= link_to 'Add new movie', new_movie_path
